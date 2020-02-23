@@ -12,7 +12,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use('/api', ApiRouter);
 server.use('/frontend', BackendRouter);
 
-server.use((_req, res) => {
+server.use((req, res) => {
   res.send('Error 404: Page not found.');
 });
 
