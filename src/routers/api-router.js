@@ -1,13 +1,13 @@
 const express = require('express');
 const UsersController = require('../api/controllers/users-controller');
 const AddressesController = require('../api/controllers/addresses-controller');
-const DatabaseMiddleware = require('../api/middleware/database-middleware');
 
 const ApiRouter = express.Router();
 
-ApiRouter.use(DatabaseMiddleware);
+ApiRouter.get('/users', UsersController.getUsers);
+ApiRouter.get('/users/:userId', UsersController.getUser);
 
-ApiRouter.get('/users', UsersController);
-ApiRouter.get('/addresses', AddressesController);
+ApiRouter.get('/addresses', AddressesController.getAddresses);
+ApiRouter.get('/addresses/:addressId', AddressesController.getAddress);
 
 module.exports = ApiRouter;
