@@ -11,8 +11,7 @@ exports.getAddresses = async (req, res) => {
 
 exports.getAddress = async (req, res) => {
   try {
-    // const address = await Address.findById(req.params.addressId);
-    const address = await Address.findOne({ _id: req.params.addressId });
+    const address = await Address.findById(req.params.addressId);
     res.json(address);
   } catch (e) {
     res.status(404).json(e);
